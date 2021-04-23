@@ -1,0 +1,40 @@
+mission-control:
+  enabled: false
+pipelines:
+  enabled: true
+distribution:
+  enabled: false
+artifactory-ha:
+  enabled: true
+  postgresql:
+    enabled: false
+  waitForDatabase: false
+  database:
+    type: postgresql
+    driver: org.postgresql.Driver
+    url: jdbc:postgresql://FILL_ME:5432/FILL_ME
+    user: FILL_ME
+    password: FILL_ME
+  # serviceAccount:
+  #     annotations:
+  #       eks.amazonaws.com/role-arn: arn:aws:iam::256151769638:role/artifactory-cluster-SharedServicesArtifactorySARol-LS4RUOV9XVSK
+  artifactory:
+    # For artifactory pro license (supports single node only), enable node replicaCount=0
+    node:
+      replicaCount: 0
+    migration:
+      enabled: false
+    persistence:
+      type: aws-s3-v3   
+      awsS3V3:     
+        region: FILL_ME     
+        bucketName: FILL_ME
+  nginx:
+    config:
+        use-forwarded-headers: "true"
+    service:
+      ssloffload: true
+      annotations:
+        service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "FILL_ME"
+        service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+        service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
