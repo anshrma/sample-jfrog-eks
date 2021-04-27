@@ -1,11 +1,11 @@
 import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
-import * as SampleJfrogEks from '../lib/sample-jfrog-eks-stack';
+import * as SampleJfrogEks from '../lib/bottlerocket';
 
 test('Empty Stack', () => {
     const app = new cdk.App();
     // WHEN
-    const stack = new SampleJfrogEks.SampleJfrogEksStack(app, 'MyTestStack');
+    const stack = new SampleJfrogEks.BottleRocket(app, 'MyTestStack');
     // THEN
     expectCDK(stack).to(matchTemplate({
       "Resources": {}

@@ -1,8 +1,14 @@
 # Welcome to the sample CDK TypeScript project to install JFrog Platform on EKS!
 
-This is a blank project for TypeScript development with CDK.
+This repository hosts code samples that you can use to get started for creating JFrog Platform on EKS using jfrog-cdk-constructs AWS CDK Construct. 
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+Please let us know if you need more samples by opening an issue here and we would priortize it.
+
+## Sample use cases
+
+|Use Case | Sample Code to refer  |
+--- | --- |
+|Use BottleRocket Operating System for powering your worker nodes | /lib/bottlerocket.ts|
 
 ## Useful commands
 
